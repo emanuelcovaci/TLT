@@ -9,5 +9,4 @@ def index(request):
 def about(request):
     return render(request, 'homepage/about.html')
 
-def contact(request):
-    return render(request,'homepage/contact.html')
+
