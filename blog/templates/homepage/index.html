@@ -4,23 +4,34 @@
   {% load staticfiles sass_tags %}
   <meta http-equiv="Content-Type" content="text/html; charset=UTF-8"/>
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1.0"/>
-  <title>Elim Blog</title>
+  <title>TLT</title>
 
   <!-- CSS  -->
   <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
   <link href="{% sass_src 'sass/materialize.scss'%}" type="text/css" rel="stylesheet" media="screen,projection"/>
   <link href="{% static 'css/style.css'%}" type="text/css" rel="stylesheet" media="screen,projection"/>
-
+  <style>
+    .parallax-container {
+      height: 300px;
+    }
+  </style>
 </head>
 <body>
+
   <nav class="primary-color lighten-1" role="navigation">
-    <div class="nav-wrapper container"><a id="logo-container" href="#" class="brand-logo">Elim Blog</a>
+    <div class="nav-wrapper container"><a id="logo-container" href="#" class="brand-logo">TLT</a>
       <ul class="right hide-on-med-and-down">
         <li><a href="#">Acasa</a></li>
+        <li><a href="#">Despre</a></li>
+        <li><a href="#">Activitati</a></li>
+        <li><a href="#">Contact</a></li>
       </ul>
 
       <ul id="nav-mobile" class="side-nav">
         <li><a href="#">Acasa</a></li>
+        <li><a href="#">Despre</a></li>
+        <li><a href="#">Activitati</a></li>
+        <li><a href="#">Contact</a></li>
       </ul>
       <a href="#" data-activates="nav-mobile" class="button-collapse"><i class="material-icons">menu</i></a>
     </div>
@@ -30,9 +41,9 @@
 
    <div class="carousel carousel-slider center carousel-main" data-indicators="true">
     <a class="carousel-item" href="#one!"><img src="{% static 'img/4.jpg'%}"></a>
-    <a class="carousel-item" href="#two!"><img src="{% static 'img/help.jpg'%}"></a>
-    <a class="carousel-item" href="#three!"><img src="{% static 'img/5.jpg'%}"></a>
-    <a class="carousel-item" href="#four!"><img src="{% static 'img/run.jpg'%}"></a>
+    <a class="carousel-item" href="#two!"><img src="{% static 'img/work.jpg'%}"></a>
+    <a class="carousel-item" href="#three!"><img src="{% static 'img/work2.jpg'%}"></a>
+    <a class="carousel-item" href="#four!"><img src="{% static 'img/work3.jpg'%}"></a>
   </div>
 
 
@@ -73,11 +84,86 @@
     <br><br>
   </div>
 
+  <div class="row">
+     <div class="col s12 m5 l4">
+             <div class="card">
+              <div class="card-image waves-effect waves-block waves-light">
+                <img class="activator" src="{% static 'img/4.jpg'%}">
+              </div>
+              <div class="card-content">
+                <span class="card-title activator grey-text text-darken-4">Card Title<i class="material-icons right">more_vert</i></span>
+                <p><a href="#">This is a link</a></p>
+              </div>
+              <div class="card-reveal">
+                <span class="card-title grey-text text-darken-4">Card Title<i class="material-icons right">close</i></span>
+                <p>Here is some more information about this product that is only revealed once clicked on.</p>
+              </div>
+            </div>
+
+      </div>
+    <div class="col s12 m5 l4">
+             <div class="card">
+              <div class="card-image waves-effect waves-block waves-light">
+                <img class="activator" src="{% static 'img/4.jpg'%}">
+              </div>
+              <div class="card-content">
+                <span class="card-title activator grey-text text-darken-4">Card Title<i class="material-icons right">more_vert</i></span>
+                <p><a href="#">This is a link</a></p>
+              </div>
+              <div class="card-reveal">
+                <span class="card-title grey-text text-darken-4">Card Title<i class="material-icons right">close</i></span>
+                <p>Here is some more information about this product that is only revealed once clicked on.</p>
+              </div>
+            </div>
+
+      </div>
+    <div class="col s12 m5 l4">
+             <div class="card">
+              <div class="card-image waves-effect waves-block waves-light">
+                <img class="activator" src="{% static 'img/4.jpg'%}">
+              </div>
+              <div class="card-content">
+                <span class="card-title activator grey-text text-darken-4">Card Title<i class="material-icons right">more_vert</i></span>
+                <p><a href="#">This is a link</a></p>
+              </div>
+              <div class="card-reveal">
+                <span class="card-title grey-text text-darken-4">Card Title<i class="material-icons right">close</i></span>
+                <p>Here is some more information about this product that is only revealed once clicked on.</p>
+              </div>
+            </div>
+
+      </div>
+  </div>
+
+  <div class="container">
+    <div class="section">
+
+      <div class="row">
+        <div class="col s12 center">
+          <h3><i class="mdi-content-send brown-text"></i></h3>
+          <h4>Lorem ipsum </h4>
+          <p class="left-align light">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nullam scelerisque id nunc nec volutpat. Etiam pellentesque tristique arcu, non consequat magna fermentum ac. Cras ut ultricies eros. Maecenas eros justo, ullamcorper a sapien id, viverra ultrices eros. Morbi sem neque, posuere et pretium eget, bibendum sollicitudin lacus. Aliquam eleifend sollicitudin diam, eu mattis nisl maximus sed. Nulla imperdiet semper molestie. Morbi massa odio, condimentum sed ipsum ac, gravida ultrices erat. Nullam eget dignissim mauris, non tristique erat. Vestibulum ante ipsum primis in faucibus orci luctus et ultrices posuere cubilia Curae;</p>
+        </div>
+      </div>
+
+    </div>
+  </div>
+
+
+   <div class="parallax-container">
+      <div class="parallax"><img   src="{% static 'img/4.jpg'%}"></div>
+    </div>
+
+ <br><br><br>
+
+
+
+
   <footer class="page-footer primary-color">
     <div class="container">
       <div class="row">
         <div class="col l6 s12">
-          <h5 class="white-text">Company Bio</h5>
+          <h5 class="white-text">TLT</h5>
           <p class="grey-text text-lighten-4">We are a team of college students working on this project like it's our full time job. Any amount would help support and continue development on this project and is greatly appreciated.</p>
 
 
@@ -120,6 +206,12 @@
           $('.carousel').carousel('next');
       }, 3200);
   </script>
+<script>
+  $(document).ready(function(){
+      $('.parallax').parallax();
+    });
+
+</script>
 
   </body>
 </html>
