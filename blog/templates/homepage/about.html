@@ -1,0 +1,44 @@
+{% extends "base.html" %}
+{% load staticfiles sass_tags %}
+{% block content %}
+
+
+
+  <div class="container" style="margin-top: 15px;">
+    <div class="row">
+      <div class="col s12 m10 l10 offset-m1 offset-l1">
+        <div class="card">
+            <div class="card-content">
+            <div class="accent-text">
+              <center>
+                <h4>
+                  Ce este TLT ?
+                </h4>
+              </center>
+            </div>
+              <br>
+
+                <!--<div class="article-image" href="#one!">-->
+         <img style="width: 100%; height: auto;" src="{% static 'img/4.jpg'%}">
+        <!--</div>-->
+
+             <p>
+                 Lorem ipsum dolor sit amet, consectetur adipiscing elit. Mauris molestie, neque ac ornare pretium, dui purus eleifend felis, ut fermentum tellus felis at diam. Quisque non pellentesque orci, in commodo lorem. Fusce a urna ac justo condimentum eleifend et maximus turpis. Etiam pulvinar nunc quis ligula sodales, a rhoncus dui ornare. Cras tempus, risus nec gravida vulputate, dui dui aliquam enim, sit amet volutpat nulla orci quis nisl. Integer eu est vel quam suscipit scelerisque volutpat sed felis. Nulla diam purus, vulputate id felis ac, viverra sagittis mauris. In eu augue id velit malesuada viverra. Maecenas dolor dui, blandit vitae enim at, ullamcorper cursus dolor. Donec at purus pellentesque, posuere diam vel, pellentesque dolor.
+             </p>
+              <br>
+              <p>
+                 Lorem ipsum dolor sit amet, consectetur adipiscing elit. Mauris molestie, neque ac ornare pretium, dui purus eleifend felis, ut fermentum tellus felis at diam. Quisque non pellentesque orci, in commodo lorem. Fusce a urna ac justo condimentum eleifend et maximus turpis. Etiam pulvinar nunc quis ligula sodales, a rhoncus dui ornare. Cras tempus, risus nec gravida vulputate, dui dui aliquam enim, sit amet volutpat nulla orci quis nisl. Integer eu est vel quam suscipit scelerisque volutpat sed felis. Nulla diam purus, vulputate id felis ac, viverra sagittis mauris. In eu augue id velit malesuada viverra. Maecenas dolor dui, blandit vitae enim at, ullamcorper cursus dolor. Donec at purus pellentesque, posuere diam vel, pellentesque dolor.
+             </p>
+
+            </div>
+    <br><br>
+        </div></div></div></div>
+    <div class="section">
+
+    </div>
+  </div>
+ <script src="https://code.jquery.com/jquery-2.1.1.min.js"></script>
+  <script src="{% static 'js/materialize.js'%}"></script>
+  <script src="{% static 'js/init.js'%}"></script>
+
+ {% endblock %}
