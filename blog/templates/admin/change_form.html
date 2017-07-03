@@ -126,7 +126,7 @@
             });
             
             function create_file(){
-                var popup = window.open('/admin/post/post/add/?_to_field=id&_popup=1&_exterior=1', 'Add file', 'width=800,height=600');
+                var popup = window.open('/admin/file/post/add/?_to_field=id&_popup=1&_exterior=1', 'Add file', 'width=800,height=600');
                 popup.onbeforeunload = function(){
                     popup.close();
                     search("");

@@ -4,6 +4,7 @@
 {% block title %}{{ title }} | {{ site_title|default:_('Django site admin') }}{% endblock %}
 {% block extrahead %} <script type="text/javascript" src="{% static 'tinymce/tinymce.min.js' %}"></script>
         <link rel="stylesheet" type="text/css" href="{% static 'prism/prism.css' %}">
+<script src="//cdnjs.cloudflare.com/ajax/libs/clipboard.js/1.5.12/clipboard.min.js" async></script>
         <script type="text/javascript" src="{% static 'prism/prism.js' %}"></script><script type="text/javascript">
 
 tinyMCE.init({
