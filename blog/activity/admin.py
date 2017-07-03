@@ -7,7 +7,7 @@ from .forms import ActivityCreationFormAdmin, ActivityChangeFormAdmin
 class ActivityAdmin(admin.ModelAdmin):
     add_form = ActivityCreationFormAdmin
     change_form = ActivityChangeFormAdmin
-    icon = '<i class="material-icons">rss_feed</i>'
+    icon = '<i class="material-icons">grain</i>'
 
     list_display = ('author', 'name', 'slug',)
 
