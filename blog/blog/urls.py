@@ -24,5 +24,6 @@ urlpatterns = [
     url(r'^', include('activity.urls')),
     url(r'^', include('contact.urls')),
     url(r'^', include('file.urls')),
+    url(r'^', include('event.urls')),
 ]+ static(settings.MEDIA_URL, document_root=settings.MEDIA_ROOT)
 

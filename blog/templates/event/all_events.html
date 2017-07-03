@@ -1,0 +1,76 @@
+{% extends "base.html" %}
+{% load staticfiles sass_tags %}
+{% block content %}
+<style>
+    .parallax-container {
+      height: 350px!important;
+    }
+</style>
+<style>
+    body {
+    background-color: white!important;
+}
+</style>
+ <div class="parallax-container">
+      <div class="parallax"><img   src="{% static 'img/play.jpg'%}"></div>
+    </div>
+
+<div align="center">
+<h3>Evenimente</h3>
+</div>
+
+{% if events %}
+<div class="row">
+    {% for event in events %}
+     <div class="col s12 m5 l4">
+             <div class="card">
+              <div class="card-image waves-effect waves-block waves-light">
+                <img class="activator" src='{{ event.file.url }}'>
+              </div>
+              <div class="card-content">
+                <span class="card-title activator grey-text text-darken-4">{{ event.name }}<i class="material-icons right">more_vert</i></span>
+                <p><a href="/event/{{event.slug}}">Afla mai multe</a></p>
+              </div>
+              <div class="card-reveal">
+                <span class="card-title grey-text text-darken-4">{{ event.name}}<i class="material-icons right">close</i></span>
+                  <a href="/event/{{event.slug}}">  <p>Afla mai multe</p></a>
+              </div>
+            </div>
+
+      </div>
+    {% endfor %}
+
+  </div>
+{% endif %}
+
+
+<br><br>
+
+<div align="center">
+  <ul class="pagination">
+       {% if events.has_previous %}
+            <li ><a href="?page={{ events.previous_page_number }}"><i class="material-icons">chevron_left</i></a></li>
+      {% endif %}
+      {% for num in events.paginator.page_range %}
+            {% if num == events.number %}
+    <li class="active"><a href="?page={{ num }}">{{ num }}</a></li>
+      {% else %}
+
+    <li class="waves-effect"><a href="?page={{ num }}">{{ num }}</a></li>
+      {% endif %}
+      {% endfor %}
+
+       {% if events.has_next %}
+    <li class="waves-effect"><a href="?page={{ events.next_page_number }}">
+        <i class="material-icons">chevron_right</i></a></li>
+       {% endif %}
+  </ul>
+</div>
+
+<br><br>
+
+
+
+
+
+ {% endblock %}
