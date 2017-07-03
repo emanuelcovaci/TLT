@@ -52,6 +52,8 @@ INSTALLED_APPS = [
     'homepage',
     'activity',
     'contact',
+    'file',
+    'utility',
 ]
 
 MIDDLEWARE = [

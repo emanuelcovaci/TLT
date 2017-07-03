@@ -7,7 +7,7 @@ from utility import clean_file
 class ActivityCreationFormAdmin(forms.ModelForm):
     text = forms.CharField(widget=AdminTinyMCE(attrs={'cols': 80, 'rows': 30}), label='')
     date = forms.SplitDateTimeField()
-
+    show_files = True
     class Meta:
         model = Activity
         fields = ('name', 'file', 'date',)
@@ -30,6 +30,7 @@ class ActivityCreationFormAdmin(forms.ModelForm):
 
 
 class ActivityChangeFormAdmin(forms.ModelForm):
+    show_files = True
     text = forms.CharField(widget=AdminTinyMCE(attrs={'cols': 80, 'rows': 30}), label='')
     date = forms.SplitDateTimeField()
 

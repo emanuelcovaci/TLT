@@ -1,0 +1,84 @@
+{% extends "admin/base_site.html" %}
+{% load i18n admin_urls admin_static admin_modify material_form material_admin %}
+
+{% block brand-logo %}{{ title }}{% endblock %}
+
+{% block breadcrumbs_items %}
+<a href="{% url 'admin:index' %}">{% trans 'Home' %}</a>
+<a href="{% url opts|admin_urlname:'changelist' %}">{{ opts.verbose_name_plural|capfirst }}</a>
+<a class="active" href="{% url opts|admin_urlname:'changelist' %}">{% if add %}{% trans 'Add' %} {{ opts.verbose_name }}{% elif view %}{% trans 'View' %}{% elif change %}{% trans 'Change' %}{% endif %}</a>
+{% endblock %}
+
+
+{% block content %}
+<div class="row change-form">
+    <div class="col s12 m12 l9">
+        <form {% if has_file_field %}enctype="multipart/form-data" {% endif %}action="{{ form_url }}" method="post" id="{{ opts.model_name }}_form">
+            {% csrf_token %}
+            <input type="hidden" name="form-TOTAL_FORMS" value="0" id="id_form-TOTAL_FORMS" />
+            <input type="hidden" name="form-INITIAL_FORMS" value="0" id="id_form-INITIAL_FORMS" />
+            <input type="hidden" name="form-MAX_NUM_FORMS" value="" id="id_form-MAX_NUM_FORMS" />
+        </form>
+        <div class="card">
+            <link rel="stylesheet" type="text/css" href="{% static 'admin_site/drag_n_drop.css' %}">
+            <div class="card-content">
+                <form class="box" method="post" action="" enctype="multipart/form-data">
+                    {% csrf_token %}
+                    <div class="box__input">
+                        <input class="box__file" type="file" name="files[]" id="file" data-multiple-caption="{count} files selected" multiple />
+                        <label for="file"><strong>Choose a file</strong><span class="box__dragndrop"> or drag it here</span>.</label>
+                        <button class="box__button" type="submit" name="drag_n_drop">Upload</button>
+                    </div>
+                    <div class="box__uploading">Uploading&hellip;</div>
+                    <div class="box__success">Done!</div>
+                    <div class="box__error">Error! <span></span>.</div>
+                </form>
+            </div>
+            <div class="card-action">
+                <div class="right-align">
+                    <a class="waves-effect waves-light btn white-text" onclick="post()">Save</a>
+                </div>
+            </div>
+
+            <script src="//cdnjs.cloudflare.com/ajax/libs/jquery.matchHeight/0.7.0/jquery.matchHeight-min.js"></script>
+            <script type="text/javascript" src="{% static 'modernizr/modernizr-custom.js' %}"></script>
+            <script type="text/javascript" src="{% static 'admin_site/drag_n_drop.js' %}"></script>
+        </div>
+    </div>
+    <div class="col s12 m12 l3">
+        {% if not is_popup and change %}
+        <div class="card actions-card">
+            <div class="card-content">
+                <span class="card-title black-text">{% trans "Action" %}</span>
+                {% block object-tools %}
+                <div class="row">
+                    <div class="col s12">
+                        <ul class="object-tools col s12">
+                            {% block object-tools-items %}
+                            <li>
+                                {% url opts|admin_urlname:'history' original.pk|admin_urlquote as history_url %}
+                                <a href="{% add_preserved_filters history_url %}" class="historylink">{% trans "History" %}</a>
+                            </li>
+                            {% if has_absolute_url %}<li><a href="{{ absolute_url }}" class="viewsitelink">{% trans "View on site" %}</a></li>{% endif %}
+                            {% endblock %}
+                        </ul>
+                    </div>
+                </div>
+                {% endblock %}
+            </div>
+        </div>        
+        {% endif %}
+    </div>
+    {% if adminform and add %}
+    <script type="text/javascript">
+        $('form#{{ opts.model_name }}_form :input:visible:enabled:first').attr('autofocus', true);
+        $('form#{{ opts.model_name }}_form :input:visible:enabled:first').focus();  
+    </script>
+    {% endif %}
+    {% if adminform.form.show_files %}
+    <script type="text/javascript">
+        new Clipboard(".cpy");
+    </script>
+    {% endif %}
+</div>
+{% endblock %}
