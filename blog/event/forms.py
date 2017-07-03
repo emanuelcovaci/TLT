@@ -54,8 +54,6 @@ class EventChangeFormAdmin(forms.ModelForm):
     geolocation = forms.CharField()
     
     show_files = True
-    show_preview = True
-    preview_url = "/preview_event/"
     
     class Meta:
         model = Event
