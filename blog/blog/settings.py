@@ -45,7 +45,7 @@ INSTALLED_APPS = [
     'django.contrib.messages',
     'django.contrib.staticfiles',
 
-    'sass_processor',
+
     'widget_tweaks',
     'captcha',
     'tinymce',
