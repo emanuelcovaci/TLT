@@ -12,7 +12,7 @@ def contact(request):
         if form.is_valid():
             form.save()
             confirm.append(
-                'Your message has been successfully sent!\nThank you!')
+                'Am primit mesajul tau!\nMultumim!')
             form = CreateContact(None)
     return render(request, 'contact/contact.html',
                   {'form': form,

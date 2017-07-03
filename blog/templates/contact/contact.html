@@ -27,11 +27,11 @@
        {% csrf_token %}
 
 
-       {% if messages %}
+       {% if confirm %}
        <center>
             <div  class="chip">
-               <img src="{% static 'img/engineer.png'%}" alt="Contact Person">
-                   {% for message in messages %}
+               <img src="{% static 'img/send.svg'%}" alt="Contact Person">
+                   {% for message in confirm %}
                       {{ message}}
                    {% endfor %}
              </div>
@@ -52,7 +52,7 @@
 
            {% if form.first_name.errors %}
                 <div align="center" class="chip">
-                   <img src="{% static 'img/engineer.png'%}" alt="Contact Person">
+                   <img src="{% static 'img/settings.svg'%}" alt="Contact Person">
                         {% for error in form.first_name.errors %}
                           {{ error }}
                        {% endfor %}
@@ -71,7 +71,7 @@
 
            {% if form.last_name.errors %}
                 <div align="center" class="chip">
-                   <img src="{% static 'img/engineer.png'%}" alt="Contact Person">
+                   <img src="{% static 'img/settings.svg'%}" alt="Contact Person">
                         {% for error in form.last_name.errors %}
                           {{ error }}
                        {% endfor %}
@@ -88,7 +88,7 @@
            <label for="email">Email</label>
            {% if form.email.errors %}
                 <div align="center" class="chip">
-                   <img src="{% static 'img/engineer.png'%}" alt="Contact Person">
+                   <img src="{% static 'img/settings.svg'%}" alt="Contact Person">
                       {% for error in form.email.errors %}
                           {{ error }}
                        {% endfor %}
@@ -103,9 +103,9 @@
           {{ form.message|add_class:"materialize-textarea"}}
           <label for="textarea1">Mesajul dvs</label>
 
-          {% if form.sender_text.errors %}
+          {% if form.message.errors %}
                <div align="center" class="chip">
-                  <img src="{% static 'img/engineer.png'%}" alt="Contact Person">
+                  <img src="{% static 'img/settings.svg'%}" alt="Contact Person">
                     {% for error in form.message.errors %}
                          {{ error }}
                       {% endfor %}
