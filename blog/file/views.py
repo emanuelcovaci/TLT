@@ -69,4 +69,4 @@ def download_interior_file(request, slug):
 
 def exterior_files(request, location, path):
     if location is not "articolFiles":
-        return serve(request, os.path.join("documents", location, path), document_root=config.settings.MEDIA_ROOT)
+        return serve(request, os.path.join("documents", location, path), document_root=blog.settings.MEDIA_ROOT)
