@@ -4,6 +4,6 @@ from . import views
 urlpatterns = [
 
     url(r'^activitati/$', views.activity, name='contact'),
-    url(r'^post/$', views.post, name='post'),
+    url(r'^post/(?P<slug>[^\.]+)/$', views.post, name='post'),
 
 ]

@@ -6,6 +6,11 @@
       height: 350px!important;
     }
 </style>
+<style>
+    body {
+    background-color: white!important;
+}
+</style>
  <div class="parallax-container">
       <div class="parallax"><img   src="{% static 'img/play.jpg'%}"></div>
     </div>
@@ -14,119 +19,51 @@
 <h3>Activitati</h3>
 </div>
 
-
+{% if all_activity %}
 <div class="row">
+    {% for activity in all_activity %}
      <div class="col s12 m5 l4">
              <div class="card">
               <div class="card-image waves-effect waves-block waves-light">
-                <img class="activator" src="{% static 'img/play.jpg'%}">
+                <img class="activator" src='{{ activity.file.url }}'>
               </div>
               <div class="card-content">
-                <span class="card-title activator grey-text text-darken-4">Card Title<i class="material-icons right">more_vert</i></span>
-                <p><a href="#">This is a link</a></p>
+                <span class="card-title activator grey-text text-darken-4">{{ activity.name }}<i class="material-icons right">more_vert</i></span>
+                <p><a href="/post/{{activity.slug}}">Afla mai multe</a></p>
               </div>
               <div class="card-reveal">
-                <span class="card-title grey-text text-darken-4">Card Title<i class="material-icons right">close</i></span>
-                <p>Here is some more information about this product that is only revealed once clicked on.</p>
+                <span class="card-title grey-text text-darken-4">{{ activity.name}}<i class="material-icons right">close</i></span>
+                  <a href="/post/{{activity.slug}}">  <p>Afla mai multe</p></a>
               </div>
             </div>
 
       </div>
-    <div class="col s12 m5 l4">
-             <div class="card">
-              <div class="card-image waves-effect waves-block waves-light">
-                <img class="activator" src="{% static 'img/game.jpg'%}">
-              </div>
-              <div class="card-content">
-                <span class="card-title activator grey-text text-darken-4">Card Title<i class="material-icons right">more_vert</i></span>
-                <p><a href="#">This is a link</a></p>
-              </div>
-              <div class="card-reveal">
-                <span class="card-title grey-text text-darken-4">Card Title<i class="material-icons right">close</i></span>
-                <p>Here is some more information about this product that is only revealed once clicked on.</p>
-              </div>
-            </div>
+    {% endfor %}
 
-      </div>
-    <div class="col s12 m5 l4">
-             <div class="card">
-              <div class="card-image waves-effect waves-block waves-light">
-                <img class="activator" src="{% static 'img/play.jpg'%}">
-              </div>
-              <div class="card-content">
-                <span class="card-title activator grey-text text-darken-4">Card Title<i class="material-icons right">more_vert</i></span>
-                <p><a href="#">This is a link</a></p>
-              </div>
-              <div class="card-reveal">
-                <span class="card-title grey-text text-darken-4">Card Title<i class="material-icons right">close</i></span>
-                <p>Here is some more information about this product that is only revealed once clicked on.</p>
-              </div>
-            </div>
-
-      </div>
   </div>
-<div class="row">
-     <div class="col s12 m5 l4">
-             <div class="card">
-              <div class="card-image waves-effect waves-block waves-light">
-                <img class="activator" src="{% static 'img/game.jpg'%}">
-              </div>
-              <div class="card-content">
-                <span class="card-title activator grey-text text-darken-4">Card Title<i class="material-icons right">more_vert</i></span>
-                <p><a href="#">This is a link</a></p>
-              </div>
-              <div class="card-reveal">
-                <span class="card-title grey-text text-darken-4">Card Title<i class="material-icons right">close</i></span>
-                <p>Here is some more information about this product that is only revealed once clicked on.</p>
-              </div>
-            </div>
+{% endif %}
 
-      </div>
-    <div class="col s12 m5 l4">
-             <div class="card">
-              <div class="card-image waves-effect waves-block waves-light">
-                <img class="activator" src="{% static 'img/play.jpg'%}">
-              </div>
-              <div class="card-content">
-                <span class="card-title activator grey-text text-darken-4">Card Title<i class="material-icons right">more_vert</i></span>
-                <p><a href="#">This is a link</a></p>
-              </div>
-              <div class="card-reveal">
-                <span class="card-title grey-text text-darken-4">Card Title<i class="material-icons right">close</i></span>
-                <p>Here is some more information about this product that is only revealed once clicked on.</p>
-              </div>
-            </div>
-
-      </div>
-    <div class="col s12 m5 l4">
-             <div class="card">
-              <div class="card-image waves-effect waves-block waves-light">
-                <img class="activator" src="{% static 'img/game.jpg'%}">
-              </div>
-              <div class="card-content">
-                <span class="card-title activator grey-text text-darken-4">Card Title<i class="material-icons right">more_vert</i></span>
-                <p><a href="#">This is a link</a></p>
-              </div>
-              <div class="card-reveal">
-                <span class="card-title grey-text text-darken-4">Card Title<i class="material-icons right">close</i></span>
-                <p>Here is some more information about this product that is only revealed once clicked on.</p>
-              </div>
-            </div>
-
-      </div>
-  </div>
 
 <br><br>
 
 <div align="center">
   <ul class="pagination">
-    <li class="disabled"><a href="#!"><i class="material-icons">chevron_left</i></a></li>
-    <li class="active"><a href="#!">1</a></li>
-    <li class="waves-effect"><a href="#!">2</a></li>
-    <li class="waves-effect"><a href="#!">3</a></li>
-    <li class="waves-effect"><a href="#!">4</a></li>
-    <li class="waves-effect"><a href="#!">5</a></li>
-    <li class="waves-effect"><a href="#!"><i class="material-icons">chevron_right</i></a></li>
+       {% if all_activity.has_previous %}
+            <li ><a href="?page={{ all_activity.previous_page_number }}"><i class="material-icons">chevron_left</i></a></li>
+      {% endif %}
+      {% for num in all_activity.paginator.page_range %}
+            {% if num == all_activity.number %}
+    <li class="active"><a href="?page={{ num }}">{{ num }}</a></li>
+      {% else %}
+
+    <li class="waves-effect"><a href="?page={{ num }}">{{ num }}</a></li>
+      {% endif %}
+      {% endfor %}
+
+       {% if all_activity.has_next %}
+    <li class="waves-effect"><a href="?page={{ all_activity.next_page_number }}">
+        <i class="material-icons">chevron_right</i></a></li>
+       {% endif %}
   </ul>
 </div>
 
