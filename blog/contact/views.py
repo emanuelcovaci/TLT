@@ -4,7 +4,7 @@ from django.contrib.auth.decorators import login_required
 from .forms import CreateContact
 
 
-@login_required
+
 def contact(request):
     confirm = []
     form = CreateContact(request.POST or None)

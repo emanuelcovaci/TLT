@@ -17,11 +17,13 @@ BASE_DIR = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
 
 # Quick-start development settings - unsuitable for production
 # See https://docs.djangoproject.com/en/1.10/howto/deployment/checklist/
+MEDIA_URL = '/media/'
+MEDIA_ROOT = os.path.join(BASE_DIR, "../../webroot/")
 
 # SECURITY WARNING: keep the secret key used in production secret!
 SECRET_KEY = '-1d2bglrr6xyv2174*j(1_eq4c$fhs_(s03c-vf&wn6ays0p6t'
 
-#Recaptcha key
+# Recaptcha key
 RECAPTCHA_PUBLIC_KEY = '6LemJBwUAAAAAKoGDehr9PXhtm37yIFVh4-8IGgI'
 RECAPTCHA_PRIVATE_KEY = '6LemJBwUAAAAAIh69Wu4iYCivMZg6BoPn87Wiy8C'
 
@@ -44,8 +46,8 @@ INSTALLED_APPS = [
 
     'sass_processor',
     'widget_tweaks',
-     'captcha',
-
+    'captcha',
+    'tinymce',
 
     'homepage',
     'activity',
@@ -152,3 +154,5 @@ STATICFILES_DIRS = [os.path.join(BASE_DIR, "static")]
 
 NOCAPTCHA = True
 RECAPTCHA_USE_SSL = False
+
+TINYMCE_JS_URL = '/static/tinymce/tinymce.js'
