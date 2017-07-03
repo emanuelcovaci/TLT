@@ -2,7 +2,7 @@
 {% get_current_language as LANGUAGE_CODE %}
 <html lang="{{ LANGUAGE_CODE|default:"en-us" }}">
     <head>
-         {% load staticfiles sass_tags %}
+         {% load staticfiles  %}
         {% block head %}
         <meta charset="utf-8">
         <meta http-equiv="X-UA-Compatible" content="IE=edge">
@@ -11,7 +11,7 @@
         <title>{% block title %}{% endblock %}</title>
         {% block css %}
         {% include 'admin/includes/material_css.html' %}
-         <link href="{% sass_src 'sass/materialize.scss'%}" type="text/css" rel="stylesheet" media="screen,projection"/>
+         <link href="{% static 'sass/materialize.css'%}" type="text/css" rel="stylesheet" media="screen,projection"/>
         {% block extrastyle %}{% endblock %}
         {% endblock css %}
         {% block blockbots %}<meta name="robots" content="NONE,NOARCHIVE" />{% endblock %}
