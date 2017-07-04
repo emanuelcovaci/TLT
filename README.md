@@ -19,6 +19,10 @@ $  python manage.py migrate
 $  python manage.py runserver
 ```
 
+
+# Deploy on server
+This is the setup  for server [click here](https://github.com/emanuelcovaci/TLT/wiki/Deploy-Server)
+
 ## Technologies used
 * Html
 * Css
