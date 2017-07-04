@@ -7,3 +7,7 @@ python-magic==0.4.12
 django-tinymce
 django-extensions
 django-google-maps
+django-sass-processor==0.5.4
+django-compressor==2.1.1
+libsass==0.12.3
+
