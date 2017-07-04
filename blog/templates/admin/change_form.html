@@ -71,10 +71,8 @@
             </div>
         </div>        
         {% endif %}
-        {% if adminform.form.show_files %}
-        {% load view_extra %}
         {% load static %}
-        {% get_files as files %}
+	       
         <script type="text/javascript">
             var static_url = {% get_media_prefix %};
             function search(key) {
@@ -154,7 +152,7 @@
                         </div>
                         <div class="collapsible-body card-action" style="border-top: none;">
                             <div class="right-align">
-                                <a class="cpy accent-color-text" data-clipboard-text="{{ f.file.url }}">
+                                <a class="cpy accent-color-text" data-clipboard-text="/media/{{ f.file.url }}">
                                     Copy Link
                                 </a>
                                 <a class="accent-color-text" href="{{ f.file.url }}" target="_blank">
@@ -171,7 +169,7 @@
             </div>
         </div>
         <br>
-        {% endif %}
+       
         {% if adminform.form.show_preview %}
         <div class="card actions-card">
             <div class="card-content">
