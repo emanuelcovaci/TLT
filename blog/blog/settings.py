@@ -58,6 +58,7 @@ INSTALLED_APPS = [
     'file',
     'utility',
     'event',
+    'gallery',
 ]
 
 MIDDLEWARE = [

@@ -25,5 +25,6 @@ urlpatterns = [
     url(r'^', include('contact.urls')),
     url(r'^', include('file.urls')),
     url(r'^', include('event.urls')),
+    url(r'^', include('gallery.urls')),
 ]+ static(settings.MEDIA_URL, document_root=settings.MEDIA_ROOT)
 
