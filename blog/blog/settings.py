@@ -20,24 +20,23 @@ BASE_DIR = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
 MEDIA_URL = '/media/'
 MEDIA_ROOT = os.path.join(BASE_DIR, "media")
 
-# SECURITY WARNING: keep the secret key used in production secret!
-SECRET_KEY = '-1d2bglrr6xyv2174*j(1_eq4c$fhs_(s03c-vf&wn6ays0p6t'
+from .local import EMAIL_HOST, EMAIL_HOST_USER, EMAIL_HOST_PASSWORD, EMAIL_PORT, RECAPTCHA_PUBLIC_KEY, \
+    RECAPTCHA_PRIVATE_KEY, GOOGLE_MAPS_API_KEY, SECRET_KEY
+
+SECRET_KEY = SECRET_KEY
+EMAIL_USE_TLS = True
+EMAIL_HOST = EMAIL_HOST
+EMAIL_HOST_USER = EMAIL_HOST_USER  # insert email
+EMAIL_HOST_PASSWORD = EMAIL_HOST_PASSWORD  # insert password
+EMAIL_PORT = EMAIL_PORT
+EMAIL_BACKEND = 'django.core.mail.backends.smtp.EmailBackend'
 
 # Recaptcha key
-RECAPTCHA_PUBLIC_KEY = '6LemJBwUAAAAAKoGDehr9PXhtm37yIFVh4-8IGgI'
-RECAPTCHA_PRIVATE_KEY = '6LemJBwUAAAAAIh69Wu4iYCivMZg6BoPn87Wiy8C'
+RECAPTCHA_PUBLIC_KEY = RECAPTCHA_PUBLIC_KEY
+RECAPTCHA_PRIVATE_KEY = RECAPTCHA_PRIVATE_KEY
 
-GOOGLE_MAPS_API_KEY = 'AIzaSyAp5QxMyR4ylPJbBJWJCnF6pyVIqaVts_g'
-# SECURITY WARNING: don't run with debug turned on in production!
-
-from .local import EMAIL_HOST, EMAIL_HOST_USER, EMAIL_HOST_PASSWORD, EMAIL_PORT
-
-EMAIL_USE_TLS = True
-EMAIL_HOST=EMAIL_HOST
-EMAIL_HOST_USER=EMAIL_HOST_USER#insert email
-EMAIL_HOST_PASSWORD=EMAIL_HOST_PASSWORD#insert password
-EMAIL_PORT=EMAIL_PORT
-EMAIL_BACKEND = 'django.core.mail.backends.smtp.EmailBackend'
+# Google Maps
+GOOGLE_MAPS_API_KEY = GOOGLE_MAPS_API_KEY
 
 DEBUG = True
 
@@ -60,7 +59,7 @@ INSTALLED_APPS = [
     'captcha',
     'tinymce',
     'django_google_maps',
-'django_extensions',
+    'django_extensions',
 
     'homepage',
     'activity',
