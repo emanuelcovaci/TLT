@@ -1,6 +1,7 @@
 from django.shortcuts import render
 from .models import Activity
 from django.core.paginator import EmptyPage, PageNotAnInteger, Paginator
+from gallery.models import Gallery,GalleryPhoto
 
 
 # Create your views here.
@@ -23,12 +24,17 @@ def activity(request):
 
 def post(request,slug):
     articol = list(Activity.objects.values('name', 'text', 'author', 'file', 'date',
-                                       'slug').filter(slug=slug))
-
+                                       'slug','album',).filter(slug=slug))
+    instance = Gallery.objects.get(id=articol[0].get('album'))
+    photos = GalleryPhoto.objects.filter(gallery=instance).extra(
+        select={'order': 'CAST(name AS INTEGER)'}
+    ).order_by('order')
+    print photos
     return render(request, 'activity/post.html',{
         'name': articol[0].get('name'),
         'text': articol[0].get('text'),
         'author': articol[0].get('author'),
         'date': articol[0].get('date'),
         'thumbnail': "/media/" + articol[0].get('file'),
+        'photos':photos,
     })

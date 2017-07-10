@@ -29,8 +29,16 @@
                    <p>{{ text|safe }}</p>
                 </div>
             </div>
+        <div align="center">
+            {% for image in photos %}
+                  <img class="materialboxed" width="650" src="{{ image.file.url }}">
+                <br>
+            {% endfor %}
+        </div>
+
         </div>
     </article>
 
     <hr>
+
  {% endblock %}
