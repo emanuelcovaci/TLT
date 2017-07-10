@@ -10,7 +10,7 @@ class ActivityCreationFormAdmin(forms.ModelForm):
     show_files = True
     class Meta:
         model = Activity
-        fields = ('name', 'file', 'date',)
+        fields = ('name', 'file', 'date','album',)
 
     def clean_file(self):
         uploaded_file = self.cleaned_data['file']
@@ -36,7 +36,7 @@ class ActivityChangeFormAdmin(forms.ModelForm):
 
     class Meta:
         model = Activity
-        fields = ('name', 'file', 'author')
+        fields = ('name', 'file', 'author','album',)
 
     def __init__(self, *args, **kwargs):
         initial = {

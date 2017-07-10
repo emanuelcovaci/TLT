@@ -10,6 +10,7 @@ from django.db import models
 # Create your models here.
 from tinymce.models import HTMLField
 from django.utils.datetime_safe import datetime
+from gallery.models import Gallery
 
 
 def user_directory_path(self, filename):
@@ -26,6 +27,8 @@ class Activity(models.Model):
     file = models.FileField(upload_to=user_directory_path, null=True)
     slug = models.SlugField(default=uuid.uuid1, unique=True, editable=False)
     date = models.DateTimeField(default=datetime.now, blank=False, null=True, editable=True)
+    album = models.ForeignKey(Gallery, related_name='Gallery',
+                              null=True)
 
     @property
     def filename(self):

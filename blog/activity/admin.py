@@ -9,17 +9,17 @@ class ActivityAdmin(admin.ModelAdmin):
     change_form = ActivityChangeFormAdmin
     icon = '<i class="material-icons">grain</i>'
 
-    list_display = ('author', 'name', 'slug',)
+    list_display = ('author', 'name','album', 'slug',)
 
     fieldsets = ()
     change_fieldsets = (
         ('Activity', {'fields': ('name', 'author','date',)}),
-        ('Activity content', {'fields': ('text', 'file')})
+        ('Activity content', {'fields': ('text', 'file','album',)})
     )
 
     add_fieldsets = (
         ('Activity', {'fields': ('name','date',)}),
-        ('Activity content', {'fields': ('text', 'file')})
+        ('Activity content', {'fields': ('text', 'file','album',)})
     )
 
     def get_form(self, request, obj=None, **kwargs):

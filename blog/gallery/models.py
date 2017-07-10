@@ -20,6 +20,9 @@ class Gallery(File):
         verbose_name = "Gallery"
         verbose_name_plural = "Galleries"
 
+    def __unicode__(self):
+        return self.name
+
 
 class GalleryPhoto(File):
     def __init__(self, *args, **kwargs):
