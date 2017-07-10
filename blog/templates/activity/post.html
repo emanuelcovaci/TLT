@@ -31,8 +31,10 @@
             </div>
         <div align="center">
             {% for image in photos %}
+                <div>
                   <img class="materialboxed" width="650" src="{{ image.file.url }}">
-                <br>
+                </div>
+
             {% endfor %}
         </div>
 
